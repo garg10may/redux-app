@@ -1,15 +1,15 @@
 import './App.css';
 import Header from './header';
-import { createStore } from 'redux';
-import { reducer } from './store/reducer';
 import store from './store/store';
-
+import Counter from './counter';
+import Counters from './counters';
 
 function App() {
 
   return (
     <div>
       <Header count={store.getState().counters.filter(x => x.value > 0).length}></Header>
+      <Counters></Counters>
     </div>
   );
 }
