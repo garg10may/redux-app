@@ -1,0 +1,8 @@
+{
+  "workbench.colorCustomizations": {
+    "[Dracula]": {},
+    "activityBar.background": "#372C11",
+    "titleBar.activeBackground": "#4D3E18",
+    "titleBar.activeForeground": "#FCFAF4"
+  }
+}
