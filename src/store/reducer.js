@@ -9,32 +9,17 @@ const initialState = {
   ]
 }
 
-export function reducer(state = initialState, action) {
+const testState = [1];
+
+export function reducer(state = testState, action) {
   switch (action.type) {
-    case actions.INCREMENT_COUNT:
-      console.log('reducing the state, incrementing count');
-      console.log('Got id: ', action.payload.id);
-      // let newState = state.counters.forEach(counter => {
-      //   if (counter.id === action.payload.id) {
-      //     counter.value = counter.value + 1
-      //   }
-      // });
-      return {
-        ...state,
-        counters: [
-          // ...state.counters.filter(x => x.id != action.payload.id),
-          // { id: action.payload.id, value: state.counters.filter(x => x.id === action.payload.id).value + 1 }
-          // {id: 3, value:3}
-        ]
-      };
-    case actions.DELETE:
-    //todo
-    case actions.RESET_COUNT:
-    //todo
-    case actions.RESET_ALL_COUNT:
-    //todo
-    default:
+    case actions.INCREMENT_COUNT: {
+      return [4];
+
+    }
+    default: {
       return state;
+    }
   }
 
 }
