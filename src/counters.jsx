@@ -1,18 +1,20 @@
 import React from 'react';
 import Counter from './counter';
-import store from './store/store';
+import { useSelector, useDispatch } from 'react-redux';
+import { resetAllCount } from './store/actions';
 
 function Counters() {
 
+  const dispatch = useDispatch();
+  const counters = useSelector(state => state.counters)
   return (
     <div>
       <div>
-        <button style={{ marginLeft: 20, marginTop: 40, marginBottom: 40, fontWeight: 'bold' }}>Global Reset</button>
+        <button onClick={() => dispatch(resetAllCount())}>Global Reset</button>
       </div>
       <div>
-        {console.log(store.getState())}
         {
-          store.getState().counters.map(x => {
+          counters.map(x => {
             return <Counter
               id={x.id}
               value={x.value}

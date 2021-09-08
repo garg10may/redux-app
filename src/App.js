@@ -1,25 +1,15 @@
 import './App.css';
 import Header from './header';
-import store from './store/store';
 import Counters from './counters';
-import { incrementCount } from './store/actions';
+import { useSelector } from 'react-redux';
 
 function App() {
 
-  console.log(store);
-
-  store.subscribe(() => {
-    console.log("Store changed", store.getState())
-  })
-
+  const counters = useSelector(state => state.counters);
   return (
     <div>
-      {/* <Header count={store.getState().counters.filter(x => x.value > 0).length}></Header> */}
-      {/* <Counters></Counters> */}
-      {store.getState()}
-      {store.subscribe(()=> store.getState())}
-      <button onClick={() => store.dispatch(incrementCount(5))} >Click me</button>
-      <div></div>
+      <Header count={counters.filter(x => x.value > 0).length}></Header>
+      <Counters></Counters>
     </div>
   );
 }

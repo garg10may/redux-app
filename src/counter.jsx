@@ -1,14 +1,16 @@
 import React from 'react'
 import store from './store/store';
-import { incrementCount } from './store/actions';
+import { incrementCount, resetCount, deleteCounter } from './store/actions';
+import { useDispatch } from 'react-redux';
 
-export default function Counter({value, id}) {
+export default function Counter({ value, id }) {
+  const dispatch = useDispatch();
   return (
     <div>
       <div style={{ margin: 10, fontWeight: 20, float: 'left' }}>{value}</div>
-      <button style={{ margin: 10 }} onClick={() => store.dispatch(incrementCount(id))}>Increment</button>
-      <button style={{ margin: 10 }} onClick={() => 1}>Reset</button>
-      <button style={{ margin: 10 }} onClick={() => 1}>Delete</button>
+      <button style={{ margin: 10 }} onClick={() => dispatch(incrementCount(id))}>Increment</button>
+      <button style={{ margin: 10 }} onClick={() => dispatch(resetCount(id))}>Reset</button>
+      <button style={{ margin: 10 }} onClick={() => dispatch(deleteCounter(id))}>Delete</button>
     </div>
   );
 }
